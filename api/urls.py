@@ -6,6 +6,8 @@ routers = routers.DefaultRouter()
 routers.register('video', VideoElementViewSet)
 routers.register('audio', AudioFragmentViewSet)
 
+
 urlpatterns = [
-    path('', include(routers.urls)),
+    path('', include(routers.urls))
 ]
+

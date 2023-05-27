@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'api'
+    'rest_framework', # this is the Django REST framework
+    'api' # this is the app we created for the REST API
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,9 @@ ROOT_URLCONF = 'RESTapi_audio_CRUD.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / "templates" # this is the path to the templates folder in the project directory
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
