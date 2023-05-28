@@ -8,6 +8,11 @@ class VideoElement(models.Model):
     url = models.CharField(max_length=200, null=True)
 
 
+class AudioElement(models.Model):
+    id = models.AutoField(primary_key=True)
+    url = models.CharField(max_length=200, null=True)
+
+
 class AudioFragment(models.Model):
 
     choices = (
@@ -19,6 +24,7 @@ class AudioFragment(models.Model):
     id = models.AutoField(primary_key=True)
     audio_type = models.CharField(max_length=30, choices=choices)
     volume = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)]) # volume cannot exceed 100
+    audio_element = models.ForeignKey(AudioElement, on_delete=models.CASCADE, null=True)
     video_element = models.ForeignKey(VideoElement, on_delete=models.CASCADE, null=True)
     url = models.CharField(max_length=200, null=True)
     start_time = models.IntegerField(null=True)
